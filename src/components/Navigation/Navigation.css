@@ -7,3 +7,23 @@
 	justify-content: center;
 	margin-bottom: 10px;
 }
+.logo{
+	margin: 5px;
+	margin-right: 45%;
+	margin-left: 20px;
+	width: 10%;
+	height: auto;
+}
+.nav-link{
+	color: black!important;
+}
+.bg-dark{
+	background-color: white!important;
+}
+.navbar-toggler-icon{
+	background-image: url(../../assets/toggle.png)!important;
+	background-size: 70%;
+}	
+.navbar-dark .navbar-toggler{
+	/* border-color: black; */
+}

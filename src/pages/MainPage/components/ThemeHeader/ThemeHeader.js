@@ -1,40 +1,42 @@
 import {Carousel} from 'react-bootstrap';
 import fundus from '../../../../assets/fundus.png';
+import AI from '../../../../assets/AI.jpg';
+
 import './ThemeHeader.css';
 const ThemeHeader = () => {
     return (
         <Carousel className = "carousel">
-            <Carousel.Item interval={1000}>
+            <Carousel.Item interval={2500}>
                 <img
-                    className="image"
-                    src={fundus}
+                    className="image1"
+                    src={AI}
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                <h1>Hỗ trợ chuẩn đoán bằng AI</h1>
-                <h2>Sử dụng mô hình AI để dự đoán các tổn thương trên ảnh võng mạc</h2>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item interval={1500}>
-                <img
-                className="image"
-                src={fundus}
-                alt="Second slide"
-                />
-                <Carousel.Caption>
-                <h1>Thử nghiệm mô hình AI</h1>
-                <h2>Kiểm tra độ chính xác của mô hình AI trên dữ liệu có nhãn</h2>
+                <h1 className = 'title1'><b>Hỗ trợ chuẩn đoán bằng AI</b></h1>
+                <h2 className = 'description1'>Sử dụng mô hình AI để dự đoán các tổn thương trên ảnh võng mạc</h2>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={2500}>
                 <img
-                className="image"
+                    className="image2"
+                    src={fundus}
+                    alt="Second slide"
+                />
+                <Carousel.Caption>
+                <h1 className = 'title2'><b>Thử nghiệm mô hình AI</b></h1>
+                <h2 className = 'description2'>Kiểm tra độ chính xác của mô hình AI trên dữ liệu có nhãn</h2>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item interval={2500}>
+                <img
+                className="image3"
                 src={fundus}
                 alt="Third slide"
                 />
                 <Carousel.Caption>
-                <h1>Đóng góp Cơ sở dữ liệu</h1>
-                <h2>Thêm ảnh và nhãn vào kho lưu trữ ảnh võng mạc</h2>
+                <h1 className = 'title3'><b>Đóng góp Cơ sở dữ liệu</b></h1>
+                <h2 className = 'description3'>Thêm ảnh và nhãn vào kho lưu trữ ảnh võng mạc</h2>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

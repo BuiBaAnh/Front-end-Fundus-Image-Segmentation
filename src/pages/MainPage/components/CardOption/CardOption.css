@@ -2,13 +2,14 @@
  * {
 	 transition: all 0.3s ease-out;
 }
- html, body {
+html, body {
 	 height: 105%;
 	 font-family: "Nunito", sans-serif;
 	 
 }
- .container {
+.container {
 	 padding-top: 20px;
+	 padding-bottom: 60px;
 	 width: 100%;
 	 height: 100%;
 	 display: flex;
@@ -16,7 +17,7 @@
 	 align-items: space-between;
 	 justify-content: space-between;
 }
- h3 {
+h3 {
 	 color: #262626;
 	 font-size: 25px;
 	 font-weight: 700;
@@ -32,7 +33,7 @@ p.small {
 	line-height: 120%;
 	 font-size: 20px;
 }
- .go-corner {
+.go-corner {
 	 display: flex;
 	 align-items: center;
 	 justify-content: center;
@@ -45,13 +46,13 @@ p.small {
 	 background-color: #00838d;
 	 border-radius: 0 4px 0 32px;
 }
- .go-arrow {
+.go-arrow {
 	 margin-top: -4px;
 	 margin-right: -4px;
 	 color: white;
 	 font-family: courier, sans;
 }
- .card1 {
+.card1 {
 	 display: block;
 	 position: relative;
 	 max-width: 262px;
@@ -64,7 +65,7 @@ p.small {
 	 overflow: hidden;
 	 padding-bottom: 3px;
 }
- .card1:before {
+.card1:before {
 	 content: "";
 	 position: absolute;
 	 z-index: -1;
@@ -78,17 +79,18 @@ p.small {
 	 transform-origin: 50% 50%;
 	 transition: transform 0.25s ease-out;
 }
- .card1:hover:before {
+.card1:hover:before {
 	 transform: scale(21);
 }
- .card1:hover p {
+.card1:hover p {
 	 transition: all 0.3s ease-out;
 	 color: rgba(255, 255, 255, 0.8);
 	 
 }
- .card1:hover h3 {
+.card1:hover h3 {
 	 transition: all 0.3s ease-out;
 	 color: #fff;
 }
+
  
  

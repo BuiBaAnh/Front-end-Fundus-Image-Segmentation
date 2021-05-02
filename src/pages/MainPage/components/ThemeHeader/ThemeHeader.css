@@ -1,7 +1,42 @@
-.image{
+.image1{
     width: 110%;
     height: 10%;
 }
+.image2{
+    width: 110%;
+    height: 10%;
+}
+
+.image3{
+    width: 110%;
+    height: 10%;
+}
+
 .carousel{
     width: 100%;
 }
+.title1{
+    color: black;
+}
+.title1 {
+    font-size:3vw
+}
+.description1{
+    color: black;
+}
+.description1 {
+    font-size:2vw;
+}
+.title2 {
+    font-size:3vw
+}
+.description2 {
+    font-size: 2vw;
+}
+.title3 {
+    font-size:3vw
+}
+.description3 {
+    font-size:2vw;
+}
+
