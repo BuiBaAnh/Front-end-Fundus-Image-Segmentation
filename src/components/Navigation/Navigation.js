@@ -9,7 +9,7 @@ const Navigation = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="#features"><b>Trang chủ</b></Nav.Link>
+                <Nav.Link href="/"><b>Trang chủ</b></Nav.Link>
                 <NavDropdown title="Ngôn ngữ" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1"><b>Tiếng Việt</b></NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2"><b>Tiếng Anh</b> </NavDropdown.Item>

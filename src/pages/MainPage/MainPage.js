@@ -7,7 +7,6 @@ class MainPage extends React.Component{
     render(){
         return(
             <div>
-                <Navigation />
                 <ThemeHeader />
                 <CardOption />  
             </div>
