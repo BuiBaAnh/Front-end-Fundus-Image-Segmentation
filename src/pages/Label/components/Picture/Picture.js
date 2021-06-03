@@ -2,14 +2,16 @@ import React from 'react';
 import './Picture.css';
 import upload from '../../../../assets/upload.png';
 import maskTest from '../../../../assets/maskTest.png';
+import ModalBox from './components/ModalBox/ModalBox';
 
 class Picture extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             option : '',
-            image : false,
-            mask : false
+            image : '',
+            mask : '',
+            modalDisplay : false,
         }
     }
     uploadFile = (event) => {
@@ -29,18 +31,31 @@ class Picture extends React.Component{
     }
     predict = (event) => {
         event.preventDefault();
+        this.setState((prevState, prevProps) =>({
+            mask : prevState.image,
+            width : prevState.image.width
+        })
+        )
+    }
+    insert = () => {
         this.setState({
-            image : maskTest,
-            mask : true
+            modalDisplay : true
+        })
+    }
+    stopInsert = () => {
+        this.setState({
+            modalDisplay : false
         })
     }
     render(){
-        console.log(this.state.image)
         return(
             <div className = 'picture'>
+                <ModalBox mask = {this.state.mask} show = {this.state.modalDisplay} onHide = {() => this.stopInsert()}/>
                 <div className = 'raw'>
                     <input type = "file" id = "file" style = {{display:'none'}} onChange = {(event) => this.uploadFile(event)} />
-                    {this.state.image? <img src = {this.state.image} className = 'fundus'/> :''}
+                    {this.state.image? 
+                        this.state.mask?
+                            <img src = {this.state.mask} className = 'fundus' onClick = {this.insert} /> :<img src = {this.state.image} className = 'fundus' /> : ''}
                     {this.state.image ? '': (<img src = {upload} className = 'upImg' alt = 'upload'/>)}
                     {this.state.image ? ''
                         :

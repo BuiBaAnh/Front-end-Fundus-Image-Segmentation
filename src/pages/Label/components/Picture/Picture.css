@@ -35,16 +35,21 @@ button {
 }
 .raw{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
+    /* min-height: 50vh; */
     margin-bottom: 5vh;
     background-color: white;
-    width: 50%;
-    height: 60vh;
+    width: 40%;
+    /* height: 60vh; */
     border: 0.2vh solid #00838d;
     border-radius: 20px;
+}
+.raw:before {
+	content: "";
+	float: left;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
 }
 .upImg{
     width: 5vh;

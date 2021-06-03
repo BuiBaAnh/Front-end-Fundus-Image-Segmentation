@@ -3,4 +3,10 @@ html, body {
     margin: 0;
     background-color: lightblue;
 }
+/* *{
+    transition: all 0.0s ease-out !important;
+} */
+*, ::after, ::before {
+    box-sizing: content-box !important;
+}
 
