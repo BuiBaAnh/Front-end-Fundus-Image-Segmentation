@@ -12,15 +12,17 @@ class Picture extends React.Component{
             image : '',
             mask : '',
             modalDisplay : false,
+            _image : ''
         }
     }
     uploadFile = (event) => {
         event.preventDefault();
         if (event.target.files[0]){
             this.setState({
-                image : URL.createObjectURL(event.target.files[0])
+                image : URL.createObjectURL(new Blob([event.target.files[0], {type:'image/jpg'}]))
             })
         }
+        event.target.value = '';
     }
     cancelFile = (event) => {
         event.preventDefault();
@@ -32,8 +34,7 @@ class Picture extends React.Component{
     predict = (event) => {
         event.preventDefault();
         this.setState((prevState, prevProps) =>({
-            mask : prevState.image,
-            width : prevState.image.width
+            mask : maskTest,
         })
         )
     }
@@ -47,10 +48,15 @@ class Picture extends React.Component{
             modalDisplay : false
         })
     }
+    save = (msk) => {
+        this.setState({
+            mask : msk
+        })
+    }
     render(){
         return(
             <div className = 'picture'>
-                <ModalBox mask = {this.state.mask} show = {this.state.modalDisplay} onHide = {() => this.stopInsert()}/>
+                <ModalBox image = {this.state.image} mask = {this.state.mask} show = {this.state.modalDisplay} onHide = {() => this.stopInsert()} save = {this.save}/>
                 <div className = 'raw'>
                     <input type = "file" id = "file" style = {{display:'none'}} onChange = {(event) => this.uploadFile(event)} />
                     {this.state.image? 

@@ -34,17 +34,28 @@
     /* height: 60vh; */
 }
 
-
 .fundusInsert{
+    grid-row-start: 1;
+    grid-column-start: 1;
     margin: auto;
     transition: 0.5s;
     cursor: grab;
     background-color: black;
     display: inline-block;
-    position: relative;
     width: 55%;
     position:relative;
-    /* margin-left: 15%; */
+    
+} 
+.fundusMask{
+    grid-row-start: 1;
+    grid-column-start: 1;
+    margin: auto;
+    transition: 0.5s;
+    cursor: grab;
+    background-color: black;
+    display: inline-block;
+    width: 55%;
+    position:relative;  
 } 
 .main {
     display: grid !important;
@@ -56,6 +67,7 @@
     background-color: rgb(27, 25, 25);
     width: 100%;
     overflow:scroll;
+    object-position: left top;
   }
   
 .modal-dialog,
@@ -70,8 +82,15 @@
     /* 100% = dialog height, 120px = header + footer */
     max-height: calc(100% - 0px);
     min-height: calc(100% - 0px);
-    max-width: calc(200% - 0px);
-    min-width: calc(100% - 0px);
     overflow-y: scroll;
-    overflow-x: scroll;
+}
+/* canvas {
+    object-position: left top;
+    position: absolute;
+    z-index: 2;
+    display: inline-block;
+    vertical-align:baseline;
+} */
+.canvasImg{
+    display: grid;
 }
