@@ -29,7 +29,7 @@ class Label extends React.Component{
     }
     render(){
         return(
-            <div className = 'label' style={{position: 'relative', height: 'calc(100vh)', minHeight : 'calc(50vh)'}}>
+            <div className = 'label' style={{position: 'relative', minHeight : 'calc(50vh)'}}>
                 <Sidebar 
                     handleMainMarginLeft = {this.handleMainMarginLeft}
                         handleOption = {this.handleOption}

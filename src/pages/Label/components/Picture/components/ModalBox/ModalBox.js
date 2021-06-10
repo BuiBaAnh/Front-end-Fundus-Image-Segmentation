@@ -3,8 +3,7 @@ import {Modal, Button} from 'react-bootstrap';
 import Sidebar from '../Sidebar/Sidebar';
 import './ModalBox.css';
 import maskTest from '../../../../../../assets/maskTest.png';
-import {init, color, draw, save, resetInsert, Undo} from '../../../../../../components/canvasdraw';
-
+import {init, color, draw, save, resetInsert, Undo, resetPath} from '../../../../../../components/canvasdraw';
 
 class ModalBox extends React.Component {
     constructor(props){
@@ -13,7 +12,9 @@ class ModalBox extends React.Component {
         option:'',
         cursor : 'auto',
         width : "55%",
-        zoom : 0
+        zoom : 0,
+        size : 4.0,
+        sizeErase : 10.0
       }
       this.ref = React.createRef();
       this.ref1 = React.createRef();
@@ -56,7 +57,7 @@ class ModalBox extends React.Component {
       this.setState({
         zoom : this.ref.current.getBoundingClientRect().width/this.ref.current.width
       },() =>{
-        init(this.ref1.current,this.ref.current.width,this.ref.current.height, this.state.zoom, "erase");
+        init(this.ref1.current,this.ref.current.width,this.ref.current.height, this.state.zoom, this.state.size,this.state.sizeErase,"erase");
       })
     }
 
@@ -64,7 +65,7 @@ class ModalBox extends React.Component {
       this.setState({
         zoom : this.ref.current.getBoundingClientRect().width/this.ref.current.width
       },() =>{
-        init(this.ref1.current,this.ref.current.width,this.ref.current.height, this.state.zoom, "draw");
+        init(this.ref1.current,this.ref.current.width,this.ref.current.height, this.state.zoom, this.state.size, this.state.sizeErase,"draw");
       })
       
     }
@@ -128,6 +129,23 @@ class ModalBox extends React.Component {
       }
     }
 
+    resetPath = () => {
+      resetPath();
+    }
+    setSizeInsert = (size) => {
+      this.setState({
+        size : size
+      },() =>{
+        init(this.ref1.current,this.ref.current.width,this.ref.current.height, this.state.zoom, this.state.size, this.state.sizeErase, "draw");
+      })
+    }
+    setSizeErase = (size) => {
+      this.setState({
+        sizeErase : size
+      },() =>{
+        init(this.ref1.current,this.ref.current.width,this.ref.current.height, this.state.zoom, this.state.size,this.state.sizeErase, "erase");
+      })
+    }
     render(){
       return (
         <Modal
@@ -140,11 +158,15 @@ class ModalBox extends React.Component {
             <Sidebar loadMask = {() => {this.loadMask(this.props.image, this.props.mask)}} 
                       handleOption = {this.handleOption} 
                       restart = {this.restart} 
-                      draw = {() => this.draw(this.state.zoom)} 
+                      draw = {this.draw} 
                       resetDraw = {this.resetDraw}
                       erase = {this.erase}
                       undo = {() => this.undo(this.props.mask)} 
-                      save = {this.save}/>
+                      save = {this.save}
+                      resetPath = {this.resetPath}
+                      setSizeInsert = {this.setSizeInsert}
+                      setSizeErase = {this.setSizeErase}
+                      />
             <div className = "main dragscroll">
               <img onLoad = {() => {this.loadMask(this.props.image, this.props.mask)} } src = {maskTest} style = {{display:"none"}}></img>
               {/* <img onLoad = {() => {this.loadMask(this.props.mask)}} src = {maskTest} style = {{display:"none"}}></img> */}

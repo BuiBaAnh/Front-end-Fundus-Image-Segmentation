@@ -9,4 +9,8 @@ html, body {
 *, ::after, ::before {
     box-sizing: content-box !important;
 }
-
+.App{
+    display: inline-block;
+    height: 100%;
+    width: auto;
+}

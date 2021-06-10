@@ -21,12 +21,16 @@ var paths = [];
 var isFirst = 0;
 var raw = false;
 
-function init(elm,_w,_h, _zoom, _type = "draw") {
+function init(elm,_w,_h, _zoom, size, sizeErase, _type = "draw") {
     w = _w;
     h = _h;
     zoom = _zoom;
     type = _type;
     canvas = elm;
+    y = size;
+    yxe = sizeErase;
+    console.log("cc")
+    console.log(y)
     ctx = canvas.getContext("2d");
     canvas.addEventListener("mousemove", mousemove, false);
     canvas.addEventListener("mousedown",mousedown , false);
@@ -38,7 +42,7 @@ function resetInsert(elm) {
         canvas = elm;
         ctx = canvas.getContext("2d");
     }
-
+    // paths = []
     canvas.removeEventListener("mousemove", mousemove, false);
     canvas.removeEventListener("mousedown",mousedown , false);
     canvas.removeEventListener("mouseup",mouseup, false);
@@ -49,7 +53,13 @@ function mousemove(e){
         var curr = findxy('move',e);
         currX = curr.x;
         currY = curr.y
-        points.push({x : currX, y:currY, z: type});
+        if(type === "draw"){
+            points.push({x : currX, y:currY, z: type, t : y});
+        }
+        if(type === "erase"){
+            points.push({x : currX, y:currY, z: type, t : yxe});
+        }
+        // points.push({x : currX, y:currY, z: type, t : ctx.li});
         draw();
     }
 }
@@ -60,7 +70,13 @@ function mousedown(e){
     currY = curr.y
     flag = true;
     dot_flag = true;
-    points.push({x : currX, y:currY, z: type})
+    // points.push({x : currX, y:currY, z: type})
+    if(type === "draw"){
+        points.push({x : currX, y:currY, z: type, t : y});
+    }
+    if(type === "erase"){
+        points.push({x : currX, y:currY, z: type, t : yxe});
+    }
     if (dot_flag) {
         ctx.beginPath();
         ctx.fillStyle = x;
@@ -73,12 +89,6 @@ function mouseup(e){
     flag = false;
     paths.push(points);
 }
-// function mouseout(e){
-//     flag = false;
-//     paths.push(points);
-// }
-
-
 
 function color(obj) {
     switch (obj.id) {
@@ -148,11 +158,11 @@ function Undo(){
     paths.forEach(path => {
         if(path[0].z === "draw"){
             ctx.strokeStyle = "white";
-            ctx.lineWidth = y;
+            ctx.lineWidth = path[0].t;
         }
         if(path[0].z === "erase"){
             ctx.strokeStyle = "black";
-            ctx.lineWidth = yxe;
+            ctx.lineWidth = path[0].t;
         }
         ctx.beginPath();
         ctx.moveTo(path[0].x,path[0].y);  
@@ -165,4 +175,7 @@ function Undo(){
         ctx.closePath();
     })
 }
-export {init, color, draw, save, resetInsert, Undo}
+function resetPath(){
+    paths = []
+}
+export {init, color, draw, save, resetInsert, Undo, resetPath}
