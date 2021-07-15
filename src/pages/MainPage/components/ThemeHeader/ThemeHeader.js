@@ -4,6 +4,7 @@ import AI from '../../../../assets/AI.jpg';
 import Database from '../../../../assets/Database.png';
 
 import './ThemeHeader.css';
+import Translate from 'react-translate-component';
 const ThemeHeader = () => {
     return (
         <Carousel className = "carousel">
@@ -14,8 +15,8 @@ const ThemeHeader = () => {
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                <h1 className = 'title1'><b>Hỗ trợ chuẩn đoán bằng AI</b></h1>
-                <h2 className = 'description1'>Sử dụng mô hình AI để dự đoán các tổn thương trên ảnh võng mạc</h2>
+                <h1 className = 'title1'><b><Translate content = 'ban1.title'></Translate></b></h1>
+                <h2 className = 'description1'><Translate content = 'ban1.sub'></Translate></h2>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={1500}>
@@ -25,8 +26,8 @@ const ThemeHeader = () => {
                     alt="Second slide"
                 />
                 <Carousel.Caption>
-                <h1 className = 'title2'><b>Thử nghiệm mô hình AI</b></h1>
-                <h2 className = 'description2'>Kiểm tra độ chính xác của mô hình AI trên dữ liệu có nhãn</h2>
+                <h1 className = 'title2'><b><Translate content = 'ban2.title'></Translate></b></h1>
+                <h2 className = 'description2'><Translate content = 'ban2.sub'></Translate></h2>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={1500}>
@@ -36,8 +37,8 @@ const ThemeHeader = () => {
                 alt="Third slide"
                 />
                 <Carousel.Caption>
-                <h1 className = 'title3'><b>Đóng góp Cơ sở dữ liệu</b></h1>
-                <h2 className = 'description3'>Thêm ảnh và nhãn vào kho lưu trữ ảnh võng mạc</h2>
+                <h1 className = 'title3'><b><Translate content = 'ban3.title'></Translate></b></h1>
+                <h2 className = 'description3'><Translate content = 'ban3.sub'></Translate></h2>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

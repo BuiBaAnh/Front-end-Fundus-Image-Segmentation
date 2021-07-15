@@ -1,6 +1,7 @@
 import './Sidebar.css';
 import {reset, resetAll} from '../../../../../../components/dragscroll';
 import {useEffect, useState} from 'react';
+import Translate from 'react-translate-component';
 
 const Sidebar = (props) => {
     const [hideInsert, setHideInsert] = useState(true);
@@ -31,7 +32,7 @@ const Sidebar = (props) => {
                     <a href="#" onClick = {() => {openInsertSize(); props.handleOption('insert','crosshair'); resetAll(); props.draw();}}>
                     <i className="fa fa-pencil fa-2x" />
                     <span className="nav-text">
-                        Chỉnh sửa   
+                        <Translate content = 'op1'></Translate>  
                     </span>
                     </a>
                 </li>
@@ -45,7 +46,7 @@ const Sidebar = (props) => {
                     <a href="#" onClick = {() => {props.resetDraw();props.handleOption('zoomin','zoom-in'); reset();}}> 
                     <i className="fa fa-search-plus fa-2x" />
                     <span className="nav-text">
-                        Phóng to
+                        <Translate content = 'op2'></Translate>  
                     </span>
                     </a>
                 </li>
@@ -53,7 +54,7 @@ const Sidebar = (props) => {
                     <a href="#" onClick = {() => {props.resetDraw();props.handleOption('zoomout','zoom-out'); reset();}}>
                     <i className="fa fa-search-minus fa-2x" />
                     <span className="nav-text">
-                        Thu nhỏ
+                        <Translate content = 'op3'></Translate>  
                     </span>
                     </a>
                 </li>
@@ -61,7 +62,7 @@ const Sidebar = (props) => {
                     <a href="#" onClick = {() => {props.resetDraw();props.handleOption('undo','auto'); resetAll();props.undo()}}>
                     <i className="fa fa-undo fa-2x" />
                     <span className="nav-text">
-                        Quay lại
+                        <Translate content = 'op4'></Translate>  
                     </span>
                     </a>
                 </li>
@@ -69,7 +70,7 @@ const Sidebar = (props) => {
                     <a href="#" onClick = {() => {openEraseSize();props.resetDraw();props.handleOption('delete','grabbing'); resetAll();props.erase()}}>
                     <i className="fa fa-eraser fa-2x" />
                     <span className="nav-text">
-                        Xóa
+                        <Translate content = 'op5'></Translate>  
                     </span>
                     </a>
                 </li>
@@ -83,7 +84,7 @@ const Sidebar = (props) => {
                     <a href="#" onClick = {() => {props.resetDraw();props.handleOption('raw','auto'); props.restart(); resetAll();}}>
                     <i className="fa fa-image fa-2x" />
                     <span className="nav-text">
-                        Nguyên bản
+                        <Translate content = 'op6'></Translate>  
                     </span>
                     </a>
                 </li>
@@ -91,7 +92,7 @@ const Sidebar = (props) => {
                     <a href="#" onClick = {() => {props.resetDraw();props.handleOption('raw','auto'); props.restart(); resetAll(); props.loadMask(); props.resetPath()}}>
                     <i className="fa fa-file-image-o" />
                     <span className="nav-text">
-                        Hủy chỉnh sửa
+                        <Translate content = 'op7'></Translate>  
                     </span>
                     </a>
                 </li>
@@ -99,7 +100,7 @@ const Sidebar = (props) => {
                     <a href="#" onClick = {() => {props.resetDraw();props.handleOption('raw','auto'); resetAll(); props.save()}}>
                     <i className="fa fa-floppy-o" />
                     <span className="nav-text">
-                        Lưu
+                        <Translate content = 'op8'></Translate>  
                     </span>
                     </a>
                 </li>

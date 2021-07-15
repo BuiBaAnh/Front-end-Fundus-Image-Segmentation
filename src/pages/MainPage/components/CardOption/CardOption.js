@@ -1,4 +1,5 @@
 import {Card} from 'react-bootstrap';
+import Translate from 'react-translate-component';
 import './CardOption.css';
 const variant = 'info'
 
@@ -9,8 +10,8 @@ const CardOption = (props) => {
       <div className = 'container'>
         {/* <img src = ></img>   */}
           <a className="card1" href="/AI">
-            <h3>Hỗ trợ chuẩn đoán bằng AI</h3>
-            <p className="small">Sử dụng mô hình AI để dự đoán các tổn thương trên ảnh võng mạc</p>
+            <h3><Translate content = 'ban1.title'></Translate></h3>
+            <p className="small"><Translate content = 'ban1.sub'></Translate></p>
             <div className="go-corner" href="#">
               <div className="go-arrow">
                 →
@@ -19,8 +20,8 @@ const CardOption = (props) => {
           </a>
         {/* <img src = ></img>   */}
           <a className="card1" href="/experiment">
-            <h3>Thử nghiệm mô hình AI</h3>
-            <p className="small">Kiểm tra độ chính xác của mô hình AI trên dữ liệu có nhãn</p>
+            <h3><Translate content = 'ban2.title'></Translate></h3>
+            <p className="small"><Translate content = 'ban2.sub'></Translate></p>
             <div className="go-corner" href="#">
               <div className="go-arrow">
                 →
@@ -30,8 +31,8 @@ const CardOption = (props) => {
 
         {/* <img src = ></img>   */}
           <a className="card1" href="/contribute">
-            <h3>Đóng góp Cơ sở dữ liệu</h3>
-            <p className="small">Thêm ảnh và nhãn vào kho lưu trữ ảnh võng mạc</p>
+            <h3><Translate content = 'ban3.title'></Translate></h3>
+            <p className="small"><Translate content = 'ban3.sub'></Translate></p>
             <div className="go-corner" href="#">
               <div className="go-arrow">
                 →

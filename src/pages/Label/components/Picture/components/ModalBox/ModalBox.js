@@ -2,7 +2,6 @@ import React from 'react';
 import {Modal, Button} from 'react-bootstrap';
 import Sidebar from '../Sidebar/Sidebar';
 import './ModalBox.css';
-import maskTest from '../../../../../../assets/maskTest.png';
 import {init, color, draw, save, resetInsert, Undo, resetPath} from '../../../../../../components/canvasdraw';
 
 class ModalBox extends React.Component {
@@ -168,7 +167,7 @@ class ModalBox extends React.Component {
                       setSizeErase = {this.setSizeErase}
                       />
             <div className = "main dragscroll">
-              <img onLoad = {() => {this.loadMask(this.props.image, this.props.mask)} } src = {maskTest} style = {{display:"none"}}></img>
+              <img onLoad = {() => {this.loadMask(this.props.image, this.props.mask)} } src = {this.props.mask} style = {{display:"none"}}></img>
               {/* <img onLoad = {() => {this.loadMask(this.props.mask)}} src = {maskTest} style = {{display:"none"}}></img> */}
               <div className = "canvasImg">
                 <canvas 

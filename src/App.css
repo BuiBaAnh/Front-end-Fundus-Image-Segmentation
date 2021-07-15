@@ -1,16 +1,17 @@
 html, body {
     height: 100%;
     margin: 0;
-    background-color: lightblue;
+    background-color: rgb(183, 207, 223);
 }
 /* *{
     transition: all 0.0s ease-out !important;
 } */
 *, ::after, ::before {
-    box-sizing: content-box !important;
+    box-sizing: content-box ;
 }
 .App{
-    display: inline-block;
+    /* display: inline-block; */
     height: 100%;
     width: auto;
+    background-color: rgb(183, 207, 223);
 }

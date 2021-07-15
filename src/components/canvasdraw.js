@@ -29,8 +29,6 @@ function init(elm,_w,_h, _zoom, size, sizeErase, _type = "draw") {
     canvas = elm;
     y = size;
     yxe = sizeErase;
-    console.log("cc")
-    console.log(y)
     ctx = canvas.getContext("2d");
     canvas.addEventListener("mousemove", mousemove, false);
     canvas.addEventListener("mousedown",mousedown , false);
