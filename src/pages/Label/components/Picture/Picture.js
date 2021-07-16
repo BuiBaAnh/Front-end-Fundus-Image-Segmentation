@@ -10,7 +10,8 @@ import AI from '../../../../assets/AI.jpg';
 import { getToken } from '../../../../components/Common';
 
 const ip = 'localhost'
-const url = 'http://' + ip + ':5000'
+// const url = 'http://' + ip + ':5000'
+const url = 'https://3a5ff23be8df.ngrok.io'
 
 class Picture extends React.Component{
     constructor(props){
