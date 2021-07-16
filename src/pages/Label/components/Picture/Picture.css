@@ -1,5 +1,5 @@
 button {
-    background-color: #00838d; /* Green */
+    /* background-color: #00838d; Green */
     border: none;
     color: white;
     padding-top: 10px ;
@@ -93,3 +93,13 @@ button {
     flex-direction: column;
     align-items: center;
 }
+a {
+    border-radius: 20px;
+    /* display: grid; */
+    /* border: 0.2vh solid #00838d; */
+}
+.download{
+    background-color: #00838d;
+    border: 0.2vh solid #00838d;
+}
+

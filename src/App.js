@@ -13,7 +13,7 @@ const App = () => {
  
     useEffect(() => {
       const token = getToken();
-      if (token == 'abc') {
+      if (token) {
         setIsLog(true)
       }
     }, []);

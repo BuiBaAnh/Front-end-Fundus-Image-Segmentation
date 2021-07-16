@@ -6,6 +6,8 @@ import { ProgressBar, Modal } from 'react-bootstrap';
 import Alert from './components/Alert/Alert';
 import axios from 'axios';
 import Translate from 'react-translate-component';
+import AI from '../../../../assets/AI.jpg';
+import { getToken } from '../../../../components/Common';
 
 const ip = 'localhost'
 const url = 'http://' + ip + ':5000'
@@ -66,6 +68,7 @@ class Picture extends React.Component{
         }
     }
     predict = (event) => {
+        const token = getToken();
         event.preventDefault();
         const formData = new FormData();
         console.log(this.props.option)
@@ -132,9 +135,10 @@ class Picture extends React.Component{
         if (this.props.option === 'AI/OD'){
             console.log(this.state._image)
             formData.append("segOD",this.state._image)
-            axios.post(url + '/segOD', formData,  {
+            axios.post('segOD', formData,  {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
                 },
                 onUploadProgress: setPercent
 
@@ -147,13 +151,16 @@ class Picture extends React.Component{
                         mask: `data:image/jpeg;base64,${res.data}`
                     })
                 })
-                .catch(errors => console.log(errors))
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
         }
         if (this.props.option === 'AI/OC'){
             formData.append("segOC",this.state._image)
-            axios.post(url + '/segOC', formData,  {
+            axios.post('segOC', formData,  {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
                 },
                 onUploadProgress: setPercent
                 })
@@ -165,13 +172,16 @@ class Picture extends React.Component{
                         mask: `data:image/jpeg;base64,${res.data}`
                     })
                 })
-                .catch(errors => console.log(errors))
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
         }
         if (this.props.option === 'experiment/OD'){
             formData.append("expOD",this.state._image)
-            axios.post(url + '/expOD', formData,  {
+            axios.post('expOD', formData,  {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
                 },
                 onUploadProgress: setPercent
                 })
@@ -179,7 +189,7 @@ class Picture extends React.Component{
                     if (res.data === "NumFileError"){
                         this.setState({
                             onPop : true,
-                            alert : 'Sai định dạng',
+                            alert : <Translate content = 'al3.title'></Translate>,
                             detail : `Cần đúng 2 file ảnh : fundus và mask`,
                             image : false,
                             mask : false,
@@ -194,7 +204,7 @@ class Picture extends React.Component{
                     if (res.data === "NameFileError"){
                         this.setState({
                             onPop : true,
-                            alert : 'Sai định dạng',
+                            alert : <Translate content = 'al3.title'></Translate>,
                             detail : `Tên file không đúng : fundus... và mask...`,
                             image : false,
                             mask : false,
@@ -212,13 +222,16 @@ class Picture extends React.Component{
                         imgTest: `data:image/jpeg;base64,${res.data}`
                     })
                 })
-                .catch(errors => console.log(errors))
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
         }
         if (this.props.option === 'experiment/OC'){
             formData.append("expOC",this.state._image)
-            axios.post(url + '/expOC', formData,  {
+            axios.post('expOC', formData,  {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
                 },
                 onUploadProgress: setPercent
                 })
@@ -226,7 +239,7 @@ class Picture extends React.Component{
                     if (res.data === "NumFileError"){
                         this.setState({
                             onPop : true,
-                            alert : 'Sai định dạng',
+                            alert : <Translate content = 'al3.title'></Translate>,
                             detail : `Cần đúng 2 file ảnh : fundus và mask`,
                             image : false,
                             mask : false,
@@ -241,7 +254,7 @@ class Picture extends React.Component{
                     if (res.data === "NameFileError"){
                         this.setState({
                             onPop : true,
-                            alert : 'Sai định dạng',
+                            alert : <Translate content = 'al3.title'></Translate>,
                             detail : `Tên file không đúng : fundus... và mask...`,
                             image : false,
                             mask : false,
@@ -259,8 +272,144 @@ class Picture extends React.Component{
                         imgTest: `data:image/jpeg;base64,${res.data}`
                     })
                 })
-                .catch(errors => console.log(errors))
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
         }
+
+
+        //Contribute Database
+        if (this.props.option === 'contribute/OC'){
+            formData.append("conOC",this.state._image)
+            axios.post('conOC', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "success"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al4.title'></Translate>,
+                            detail : <Translate content = 'al4.sub'></Translate>,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+        if (this.props.option === 'contribute/OD'){
+            formData.append("conOD",this.state._image)
+            axios.post('conOD', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "success"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al4.title'></Translate>,
+                            detail : <Translate content = 'al4.sub'></Translate>,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+        
 
     }
     insert = () => {
@@ -288,6 +437,7 @@ class Picture extends React.Component{
             imgTest : false
         })
     }
+
     render(){
         return(
             <div className = 'picture'>
@@ -320,12 +470,14 @@ class Picture extends React.Component{
                 {this.state.image ? 
                         <div className = 'lstbutton'>
                             {this.state.mask || this.state.imgTest? 
-                                <button className = 'upload' onClick = {(event) => this.predict(event)} >
-                                Lưu
+                                <a href = {this.state.mask? this.state.mask : this.state.imgTest} download="mask.png" style = {{display:"grid", width:"25%"}}>
+                                <button className = 'download'>
+                                <Translate content = 'btn_save'></Translate>
                                 </button>
+                                </a>
                                 :
-                                <button className = 'upload' onClick = {(event) => this.predict(event)} >
-                                <Translate content = 'btn_pred'></Translate>
+                                <button className = 'upload' style = {{backgroundColor:"#00838d"}} onClick = {(event) => this.predict(event)} >
+                                <Translate style = {{color:"white"}} content = 'btn_pred'></Translate>
                                 </button>}
                             <button className = 'upload' onClick = {(event) => this.cancelFile(event)} >
                                 <Translate content = 'btn_exit'></Translate>

@@ -43,6 +43,10 @@ export default {
         title :'Sai định dạng',
         sub : 'Kiểm thử mô hình hoặc Đóng góp dữ liệu cần định dạng file Zip. Trong đó : File ảnh : fundus. (png, jpg, ...). File mask : mask. (png, jpg, ...)'
     },
+    al4 : {
+        title: 'Thêm thành công',
+        sub : 'Cảm ơn sự đóng góp của bạn!'
+    },
     op1 : 'Chỉnh sửa',
     op2 : 'Phóng to',
     op3 : 'Thu nhỏ',
@@ -51,6 +55,7 @@ export default {
     op6 : 'Nguyên bản',
     op7 : 'Hủy chỉnh sửa',
     op8 : 'Lưu',
+    op9 : 'Đóng',
     signin : 'ĐĂNG NHẬP',
     signup : 'ĐĂNG KÝ',
     username : 'NGƯỜI DÙNG',

@@ -2,20 +2,114 @@ import React from 'react';
 import './Login.css';
 import {setUserSession, getLang} from '../Common';
 import Translate from 'react-translate-component';
+import axios from 'axios';
 
 class Login extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            username : '',
+            password : '',
+            isWrong : false,
+            user : '',
+            pass : '',
+            repass : '',
+            email : '',
+            notAccept : false,
+            success : false
         }
     }
     login = (event) => {
         event.preventDefault()
-        console.log(event.target.value)
-        console.log("cc")
-        setUserSession("abc","anh");
-        window.location.href = '/'
+        const formData = new FormData()
+        formData.append('username', this.state.username)
+        formData.append('password', this.state.password)
+        console.log(formData)
+        axios.post('login', formData,  {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            })
+            .then(res =>{
+                console.log("This is the data your requested", res);
+                setUserSession(res.data.token, res.data.user_id);
+                window.location.href = '/'
+            })
+            .catch(errors => {
+                this.setState({
+                    isWrong : true
+                })
+                console.log(errors)
+            })
     }
+    signup = (event) => {
+        event.preventDefault()
+        const formData = new FormData()
+        formData.append('user', this.state.user)
+        formData.append('pass', this.state.pass)
+        formData.append('email', this.state.email)
+        console.log(formData)
+        if (this.state.pass !== this.state.repass){
+            console.log("ccccccccccccc")
+            this.setState({
+                notAccept : true
+            })
+        }
+        else{
+            axios.post('signup', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                })
+                .then(res =>{
+                    this.setState({
+                        success : true,
+                        notAccept : false
+                    })
+                    console.log("This is the data your requested", res);
+                    setUserSession(res.data.token, res.data.user_id);
+                })
+                .catch(errors => {
+                    console.log(errors)
+                })
+        }
+    }
+    handleUsername = (event) => {
+        event.preventDefault()
+        this.setState({
+            username : event.target.value
+        })
+    }   
+    handlePassword = (event) => {
+        event.preventDefault()
+        this.setState({
+            password : event.target.value
+        })
+    }   
+    handleUser = (event) => {
+        event.preventDefault()
+        this.setState({
+            user : event.target.value
+        })
+    }   
+    handlePass = (event) => {
+        event.preventDefault()
+        this.setState({
+            pass : event.target.value
+        })
+    }   
+    handleRepass = (event) => {
+        event.preventDefault()
+        this.setState({
+            repass : event.target.value
+        })
+    }   
+    handleEmail = (event) => {
+        event.preventDefault()
+        this.setState({
+            email : event.target.value
+        })
+    }   
 
     render(){
         return(
@@ -25,11 +119,11 @@ class Login extends React.Component{
                 <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab"><Translate content = 'signup'></Translate></label>
                 <div className="login-form" >
                     <div className="sign-in-htm">
-                    <div className="group">
+                    <div className="group" onChange = {this.handleUsername}>
                         <label htmlFor="user" className="label"><Translate content = 'username'></Translate></label>
                         <input id="user" type="text" className="input" />
                     </div>
-                    <div className="group">
+                    <div className="group" onChange = {this.handlePassword}>
                         <label htmlFor="pass" className="label"><Translate content = 'password'></Translate></label>
                         <input id="pass" type="password" className="input" data-type="password" />
                     </div>
@@ -40,30 +134,42 @@ class Login extends React.Component{
                     <div className="group" >
                         <input type="submit" className="button" value = {getLang() === 'vi'? 'ĐĂNG NHẬP' : 'SIGN IN'}  onClick = {this.login}/>
                     </div>
+                    {this.state.isWrong ? 
+                        <div className="foot-lnk">
+                        <a href="#forgot">Mật khẩu không đúng</a>
+                        </div> : ''}
                     <div className="hr" />
-                    <div className="foot-lnk">
+                    {/* <div className="foot-lnk">
                         <a href="#forgot"><Translate content = 'forgot'></Translate></a>
-                    </div>
+                    </div> */}
                     </div>
                     <div className="sign-up-htm">
-                    <div className="group">
+                    <div className="group" onChange = {this.handleUser}>
                         <label htmlFor="user" className="label"><Translate content = 'username'></Translate></label>
                         <input id="user" type="text" className="input" />
                     </div>
-                    <div className="group">
+                    <div className="group" onChange = {this.handlePass}>
                         <label htmlFor="pass" className="label"><Translate content = 'password'></Translate></label>
                         <input id="pass" type="password" className="input" data-type="password" />
                     </div>
-                    <div className="group">
+                    <div className="group" onChange = {this.handleRepass}>
                         <label htmlFor="pass" className="label"><Translate content = 'repeat'></Translate></label>
                         <input id="pass" type="password" className="input" data-type="password" />
                     </div>
-                    <div className="group">
+                    <div className="group"  onChange = {this.handleEmail}>
                         <label htmlFor="pass" className="label"><Translate content = 'email'></Translate></label>
                         <input id="pass" type="text" className="input" />
                     </div>
-                    <div className="group">
-                        <input type="submit" className="button" value = {getLang() === 'vi'? 'ĐĂNG NHẬP' : 'SIGN IN'} />
+                    {this.state.success ? 
+                        <div className="foot-lnk">
+                        <a href="#forgot">Chờ đợi sự đồng ý từ Admin</a>
+                        </div> : ''}
+                    {this.state.notAccept ? 
+                        <div className="foot-lnk">
+                        <a href="#forgot">Mật khẩu không khớp</a>
+                        </div> : ''}
+                    <div className="group" onClick = {this.signup}>
+                        <input type="submit" className="button" value = {getLang() === 'vi'? 'ĐĂNG KÝ' : 'SIGN UP'} />
                     </div>
                     <div className="hr" />
                     <div className="foot-lnk">

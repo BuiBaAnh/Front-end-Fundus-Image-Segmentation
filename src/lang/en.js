@@ -43,6 +43,10 @@ export default {
         title :'Wrong format',
         sub : 'Model Testing or Data Contributing requires Zip file format. In which: Image file: fundus. (png, jpg, ...). File mask : mask. (png, jpg, ...)'
     },   
+    al4 : {
+        title: 'Success!',
+        sub : 'Thanks for your distribution!'
+    },
     op1 : 'Edit',
     op2 : 'Zoom in',
     op3 : 'Zoom out',
@@ -51,6 +55,7 @@ export default {
     op6 : 'Original',
     op7 : 'Cancel',
     op8 : 'Save',
+    op9 : 'Close',
     signin : 'SIGN IN',
     signup : 'SIGN UP',
     username : 'USERNAME',

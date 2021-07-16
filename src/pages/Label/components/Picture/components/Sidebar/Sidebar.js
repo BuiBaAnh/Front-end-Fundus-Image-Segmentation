@@ -92,7 +92,7 @@ const Sidebar = (props) => {
                     <a href="#" onClick = {() => {props.resetDraw();props.handleOption('raw','auto'); props.restart(); resetAll(); props.loadMask(); props.resetPath()}}>
                     <i className="fa fa-file-image-o" />
                     <span className="nav-text">
-                        <Translate content = 'op7'></Translate>  
+                        <Translate content = 'op7'></Translate> 
                     </span>
                     </a>
                 </li>

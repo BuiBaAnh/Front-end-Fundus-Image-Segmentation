@@ -3,6 +3,7 @@ import {Modal, Button} from 'react-bootstrap';
 import Sidebar from '../Sidebar/Sidebar';
 import './ModalBox.css';
 import {init, color, draw, save, resetInsert, Undo, resetPath} from '../../../../../../components/canvasdraw';
+import Translate from 'react-translate-component';
 
 class ModalBox extends React.Component {
     constructor(props){
@@ -188,7 +189,9 @@ class ModalBox extends React.Component {
           </div>  
   
           <Modal.Footer style ={{border:"0px"}}>
-            <Button variant='outline-info' onClick={() => {this.props.onHide(); this.setState({option:'', cursor:'auto'})}} style = {{width:"100%"}}>Đóng</Button>
+            <Button variant='outline-info' onClick={() => {this.props.onHide(); this.setState({option:'', cursor:'auto'})}} style = {{width:"100%"}}>
+                <Translate content = 'op9'></Translate>
+            </Button>
           </Modal.Footer>
         </Modal>
       );
