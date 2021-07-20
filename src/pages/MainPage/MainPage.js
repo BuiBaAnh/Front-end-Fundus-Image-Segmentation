@@ -6,7 +6,7 @@ import ThemeHeader from './components/ThemeHeader/ThemeHeader';
 class MainPage extends React.Component{
     render(){
         return(
-            <div>
+            <div className = 'Main' style = {{paddingBottom : "10vh"}}>
                 <ThemeHeader />
                 <CardOption />  
             </div>

@@ -176,6 +176,119 @@ class Picture extends React.Component{
                     window.location.href = '/login'
                 })
         }
+
+        if (this.props.option === 'AI/BV'){
+            formData.append("segBV",this.state._image)
+            axios.post('segBV', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    console.log(res)
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        mask: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'AI/EX'){
+            formData.append("segEX",this.state._image)
+            axios.post('segEX', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    console.log(res)
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        mask: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'AI/SE'){
+            formData.append("segSE",this.state._image)
+            axios.post('segSE', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    console.log(res)
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        mask: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'AI/MA'){
+            formData.append("segMA",this.state._image)
+            axios.post('segMA', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    console.log(res)
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        mask: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'AI/HE'){
+            formData.append("segHE",this.state._image)
+            axios.post('segHE', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    console.log(res)
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        mask: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        // EXPERIMENT
+
         if (this.props.option === 'experiment/OD'){
             formData.append("expOD",this.state._image)
             axios.post('expOD', formData,  {
@@ -229,6 +342,261 @@ class Picture extends React.Component{
         if (this.props.option === 'experiment/OC'){
             formData.append("expOC",this.state._image)
             axios.post('expOC', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'experiment/BV'){
+            formData.append("expBV",this.state._image)
+            axios.post('expBV', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'experiment/EX'){
+            formData.append("expEX",this.state._image)
+            axios.post('expEX', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'experiment/SE'){
+            formData.append("expSE",this.state._image)
+            axios.post('expSE', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'experiment/MA'){
+            formData.append("expMA",this.state._image)
+            axios.post('expMA', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'experiment/HE'){
+            formData.append("expHE",this.state._image)
+            axios.post('expHE', formData,  {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer '+ token 
@@ -409,6 +777,336 @@ class Picture extends React.Component{
                     window.location.href = '/login'
                 })
         }
+
+        if (this.props.option === 'contribute/BV'){
+            formData.append("conBV",this.state._image)
+            axios.post('conBV', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "success"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al4.title'></Translate>,
+                            detail : <Translate content = 'al4.sub'></Translate>,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'contribute/EX'){
+            formData.append("conEX",this.state._image)
+            axios.post('conEX', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "success"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al4.title'></Translate>,
+                            detail : <Translate content = 'al4.sub'></Translate>,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'contribute/SE'){
+            formData.append("conSE",this.state._image)
+            axios.post('conSE', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "success"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al4.title'></Translate>,
+                            detail : <Translate content = 'al4.sub'></Translate>,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'contribute/MA'){
+            formData.append("conMA",this.state._image)
+            axios.post('conMA', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "success"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al4.title'></Translate>,
+                            detail : <Translate content = 'al4.sub'></Translate>,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
+
+        if (this.props.option === 'contribute/HE'){
+            formData.append("conHE",this.state._image)
+            axios.post('conHE', formData,  {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token 
+                },
+                onUploadProgress: setPercent
+                })
+                .then(res =>{
+                    if (res.data === "NumFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Cần đúng 2 file ảnh : fundus và mask`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "NameFileError"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al3.title'></Translate>,
+                            detail : `Tên file không đúng : fundus... và mask...`,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    if (res.data === "success"){
+                        this.setState({
+                            onPop : true,
+                            alert : <Translate content = 'al4.title'></Translate>,
+                            detail : <Translate content = 'al4.sub'></Translate>,
+                            image : false,
+                            mask : false,
+                            imgTest : false,
+                            _image : false,
+                            name_file : '',
+                            uploadPercentage : 0,
+                            fileType : 'image'
+        
+                        })
+                    }
+                    clearInterval(setPercent)
+                    this.setState({
+                        uploadPercentage : 0,
+                        imgTest: `data:image/jpeg;base64,${res.data}`
+                    })
+                })
+                .catch(errors => {
+                    window.location.href = '/login'
+                })
+        }
         
 
     }
@@ -477,7 +1175,8 @@ class Picture extends React.Component{
                                 </a>
                                 :
                                 <button className = 'upload' style = {{backgroundColor:"#00838d"}} onClick = {(event) => this.predict(event)} >
-                                <Translate style = {{color:"white"}} content = 'btn_pred'></Translate>
+                                {this.props.option.split('/')[0] === 'contribute' ? <Translate style = {{color:"white"}} content = 'btn_con'></Translate> : <Translate style = {{color:"white"}} content = 'btn_pred'></Translate>}
+                                
                                 </button>}
                             <button className = 'upload' onClick = {(event) => this.cancelFile(event)} >
                                 <Translate content = 'btn_exit'></Translate>

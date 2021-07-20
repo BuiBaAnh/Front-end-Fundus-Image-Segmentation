@@ -48,9 +48,8 @@ class Login extends React.Component{
         formData.append('user', this.state.user)
         formData.append('pass', this.state.pass)
         formData.append('email', this.state.email)
-        console.log(formData)
-        if (this.state.pass !== this.state.repass){
-            console.log("ccccccccccccc")
+        console.log(this.state.username)
+        if (this.state.pass !== this.state.repass ||this.state.user === '' || this.state.pass === ''){
             this.setState({
                 notAccept : true
             })
@@ -66,8 +65,7 @@ class Login extends React.Component{
                         success : true,
                         notAccept : false
                     })
-                    console.log("This is the data your requested", res);
-                    setUserSession(res.data.token, res.data.user_id);
+                    window.location.href = '/'
                 })
                 .catch(errors => {
                     console.log(errors)
@@ -136,7 +134,7 @@ class Login extends React.Component{
                     </div>
                     {this.state.isWrong ? 
                         <div className="foot-lnk">
-                        <a href="#forgot">Mật khẩu không đúng</a>
+                        <a href="#forgot"><Translate content = 'a_login'></Translate></a>
                         </div> : ''}
                     <div className="hr" />
                     {/* <div className="foot-lnk">
@@ -166,7 +164,7 @@ class Login extends React.Component{
                         </div> : ''}
                     {this.state.notAccept ? 
                         <div className="foot-lnk">
-                        <a href="#forgot">Mật khẩu không khớp</a>
+                        <a href="#forgot"><Translate content = 'a_signup'></Translate></a>
                         </div> : ''}
                     <div className="group" onClick = {this.signup}>
                         <input type="submit" className="button" value = {getLang() === 'vi'? 'ĐĂNG KÝ' : 'SIGN UP'} />

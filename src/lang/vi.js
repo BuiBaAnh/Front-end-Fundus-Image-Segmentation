@@ -19,11 +19,21 @@ export default {
         title : 'Đóng góp Cơ sở dữ liệu',
         sub : 'Thêm ảnh và nhãn vào kho lưu trữ ảnh võng mạc'
     },
+    ban4 : {
+        title : 'Quản lý người dùng',
+        sub : 'Quản lý tài khoản sử dụng ứng dụng'
+    },
+    ban5 : {
+        title : 'Xác thực dữ liệu đóng góp',
+        sub : 'Quản lý và xác thực dữ liệu đóng góp'
+    },
     sub1 : 'Đĩa',
     sub2 : 'Cốc',
     sub3 : 'Mạch máu',
     sub4 : 'Xuất tiết cứng',
     sub5 : 'Xuất tiết mềm',
+    sub6 : 'Nốt phình nhỏ',
+    sub7 : 'Xuất huyết',
     side1 : 'Hỗ trợ chuẩn đoán AI',
     side2 : 'Thử nghiệm',
     side3 : 'Đóng góp Cơ sở dữ liệu',
@@ -31,6 +41,7 @@ export default {
     btn_pred : 'Chuẩn đoán',
     btn_exit : 'Hủy',
     btn_save : 'Lưu',
+    btn_con : 'Đóng góp',
     al1 : {
         title :'Thêm lựa chọn',
         sub : 'Thêm lựa chọn chuẩn đoán - kiểm thử - đóng góp'
@@ -64,5 +75,11 @@ export default {
     submit : 'ĐĂNG NHẬP',
     forgot : 'Quên mật khẩu?',
     repeat : 'NHẬP LẠI MẬT KHẨU',
-    email : 'EMAIL ADDRESS'
+    email : 'EMAIL ADDRESS',
+    a_type : 'Loại',
+    a_time : 'Thời gian đóng góp',
+    a_delete : 'Xóa',
+    a_add : 'Thêm',
+    a_login : 'Mật khẩu không đúng',
+    a_signup : 'Mật khẩu không khớp'
 }

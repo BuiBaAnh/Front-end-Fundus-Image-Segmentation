@@ -19,11 +19,21 @@ export default {
         title : 'Contribute Database',
         sub : 'Add photos and labels to the retina photo archive'
     },
+    ban4 : {
+        title : 'User Management',
+        sub : 'Manage accounts using the app'
+    },
+    ban5 : {
+        title : 'Data validation',
+        sub : 'Contribution data management and validation'
+    },
     sub1 : 'Disc',
     sub2 : 'Cup',
     sub3 : 'Blood Vessel',
     sub4 : 'Hard exudate',
     sub5 : 'Soft exudate',
+    sub6 : 'Microaneurysms',
+    sub7 : 'Haemorrhages',
     side1 : 'AI diagnostic support',
     side2 : 'Experiment',
     side3 : 'Contribute Database',
@@ -31,6 +41,7 @@ export default {
     btn_pred : 'Predict',
     btn_exit : 'Cancel',
     btn_save : 'Save',
+    btn_con : 'Contribute',
     al1 : {
         title :'Add more options',
         sub : 'More options diagnostic - test - contribute'
@@ -64,5 +75,11 @@ export default {
     submit : 'SUBMIT',
     forgot : 'Forgot Password?',
     repeat : 'REPEAT PASSWORD',
-    email : 'EMAIL ADDRESS'
+    email : 'EMAIL ADDRESS',
+    a_time : 'Time Submit',
+    a_delete : 'Delete',
+    a_add : 'Add',
+    a_type : 'Type',
+    a_login : 'Wrong Password',
+    a_signup : 'Password is not matching'
 }

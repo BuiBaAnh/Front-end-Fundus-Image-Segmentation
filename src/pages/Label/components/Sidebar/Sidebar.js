@@ -38,14 +38,24 @@ const Sidebar = (props) => {
                             <Translate content = 'sub3' />
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="AI/HD">
+                    <NavItem eventKey="AI/EX">
                         <NavText>
                             <Translate content = 'sub4' />
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="AI/SD">
+                    <NavItem eventKey="AI/SE">
                         <NavText>
                             <Translate content = 'sub5' />
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="AI/MA">
+                        <NavText>
+                            <Translate content = 'sub6' />
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="AI/HE">
+                        <NavText>
+                            <Translate content = 'sub7' />
                         </NavText>
                     </NavItem>
                 </NavItem>
@@ -72,14 +82,24 @@ const Sidebar = (props) => {
                             <Translate content = 'sub3' />
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="experiment/HD">
+                    <NavItem eventKey="experiment/EX">
                         <NavText>
                             <Translate content = 'sub4' />
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="experiment/SD">
+                    <NavItem eventKey="experiment/SE">
                         <NavText>
                             <Translate content = 'sub5' />
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="experiment/MA">
+                        <NavText>
+                            <Translate content = 'sub6' />
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="experiment/HE">
+                        <NavText>
+                            <Translate content = 'sub7' />
                         </NavText>
                     </NavItem>
                 </NavItem>
@@ -106,14 +126,24 @@ const Sidebar = (props) => {
                             <Translate content = 'sub3' />
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="contribute/HD">
+                    <NavItem eventKey="contribute/EX">
                         <NavText>
                             <Translate content = 'sub4' />
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="contribute/SD">
+                    <NavItem eventKey="contribute/SE">
                         <NavText>
                             <Translate content = 'sub5' />
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="contribute/MA">
+                        <NavText>
+                            <Translate content = 'sub6' />
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="contribute/HE">
+                        <NavText>
+                            <Translate content = 'sub7' />
                         </NavText>
                     </NavItem>
                 </NavItem>

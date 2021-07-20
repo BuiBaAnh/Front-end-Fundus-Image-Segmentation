@@ -39,6 +39,24 @@ const CardOption = (props) => {
               </div>
             </div>
           </a>
+          <a className="card1" href="/manageUser">
+            <h3><Translate content = 'ban4.title'></Translate></h3>
+            <p className="small"><Translate content = 'ban4.sub'></Translate></p>
+            <div className="go-corner" href="#">
+              <div className="go-arrow">
+                →
+              </div>
+            </div>
+          </a>
+          <a className="card1" href="/manageContribute">
+            <h3><Translate content = 'ban5.title'></Translate></h3>
+            <p className="small"><Translate content = 'ban5.sub'></Translate></p>
+            <div className="go-corner" href="#">
+              <div className="go-arrow">
+                →
+              </div>
+            </div>
+          </a>
         </div>
     );
 }
